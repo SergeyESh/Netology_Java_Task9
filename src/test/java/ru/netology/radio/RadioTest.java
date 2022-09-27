@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    public void shouldSetRadioStationBelowMin(){
+    public void shouldSetRadioStationBelowMin() {
         Radio radio = new Radio();
 
         radio.setCurrentRadioStation(-1);
@@ -18,7 +18,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetRadioStationAboveMax(){
+    public void shouldSetRadioStationAboveMax() {
         Radio radio = new Radio();
 
         radio.setCurrentRadioStation(11);
@@ -30,7 +30,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetRadioStation(){
+    public void shouldSetRadioStation() {
         Radio radio = new Radio();
 
         radio.setCurrentRadioStation(0);
@@ -146,29 +146,17 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldGetStandartNumberRadioStation() {
-        Radio radio = new Radio();
+    public void shouldNumberRadioStation() {
+        Radio radio = new Radio(30);
 
-        Assertions.assertEquals(0, radio.getMinRadioStation());
-        Assertions.assertEquals(9, radio.getMaxRadioStation());
+        radio.setCurrentRadioStation(29);
+
+        int expected = 29;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+
     }
-
-    @Test
-    public void shouldGetSelectNumberRadioStation() {
-        Radio radio = new Radio(29);
-
-        Assertions.assertEquals(0, radio.getMinRadioStation());
-        Assertions.assertEquals(29, radio.getMaxRadioStation());
-    }
-
-    @Test
-    public void shouldGetSelectMinAndMaxRadioStation() {
-        Radio radio = new Radio(0, 28);
-
-        Assertions.assertEquals(0, radio.getMinRadioStation());
-        Assertions.assertEquals(28, radio.getMaxRadioStation());
-    }
-
 
 
 }
