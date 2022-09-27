@@ -158,5 +158,31 @@ public class RadioTest {
 
     }
 
+    @Test
+    public void shouldNextNumberRadioStationAboveMax() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentRadioStation(29);
+        radio.nextRadioStation();
+
+        int expected = 0;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldPrevNumberRadioStationBelowMin() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentRadioStation(0);
+        radio.prevRadioStation();
+
+        int expected = 29;
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 
 }
